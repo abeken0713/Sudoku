@@ -1,7 +1,3 @@
-#include <iostream>
-#include <fstream>
-#include <vector>
-#include <numeric>
 #include "sudoku.h"
 using namespace std;
 
@@ -12,6 +8,15 @@ Sudoku::Sudoku(char* _filename){
 
 Sudoku::Sudoku(vector< vector<int> > _field){
     this->_initField(_field);
+}
+
+Sudoku &Sudoku::operator=(const Sudoku& obj){
+    copy(obj.field.begin(), obj.field.end(), back_inserter(this->field));
+    copy(obj.original.begin(), obj.original.end(), back_inserter(this->original));
+    copy(obj.cand_per_num.begin(), obj.cand_per_num.end(), back_inserter(this->cand_per_num));
+    copy(obj.cand_in_field.begin(), obj.cand_in_field.end(), back_inserter(this->cand_in_field));
+    copy(obj.num_cand.begin(), obj.num_cand.end(), back_inserter(this->num_cand));
+    return *this;
 }
 
 void Sudoku::_readFile(char* _filename){

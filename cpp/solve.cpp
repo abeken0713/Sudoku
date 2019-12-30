@@ -13,7 +13,6 @@ int main(int argc, char **argv){
     }
     char* filename = argv[1];
     Sudoku game(filename);
-    game.show();
 
     return 0;
 }

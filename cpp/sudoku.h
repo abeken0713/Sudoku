@@ -1,6 +1,10 @@
 #include <iostream>
 #include <vector>
 #include <utility>
+#include <algorithm>
+#include <iterator>
+#include <numeric>
+#include <fstream>
 #include <set>
 using namespace std;
 
@@ -14,6 +18,7 @@ private:
 public:
     Sudoku(char* _filename);
     Sudoku(vector< vector<int> > _field);
+    Sudoku &operator=(const Sudoku& obj);
     void _readFile(char* _filename);
     void _initField(vector< vector<int> > _field);
     void _updateCandidates();
